@@ -1,0 +1,81 @@
+body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#calculator {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 7px solid black;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    border-color: transparent;
+}
+
+#input-output-txt {
+    background-color: white;
+    height: 60px;
+    width: 300px;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 5rem;
+    padding-left: 2px;
+    border: 3px solid black;
+    box-sizing: border-box;
+}
+
+
+#first-line,#second-line,#third-line,#forth-line,#fifth-line {
+    display: flex;
+    border-color: transparent;
+    margin-top:0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0px;
+}
+
+#first-line > button,#second-line > button,#third-line > button,#forth-line > button,#fifth-line > button{
+   width: 75px;
+   height: 48px;
+   margin-left: 0;
+   margin-right: 0;
+   border:3px solid black;
+   font-size: 30px;
+}
+
+.numbers {
+    background-color: lightblue;
+}
+
+.operators {
+    background-color: brown;
+
+}
+
+.numbers:hover,.operators:hover,.extras:hover {
+    cursor: pointer;
+}
+
+.numbers:active,.operators:active,.extras:active {
+    opacity: 0.7;
+}
+
+.extras  {
+    background-color: slategrey;
+}
+
