@@ -12,6 +12,8 @@ let number1,number2,operator;
 let operandPressed = false;
 let number;
 //Get numbers,change of numbers
+
+
 for(let i = 0;i<allNumbers.length;i++) {
     allNumbers[i].addEventListener("click",function() {
         if(showOutput.textContent.length >= 16) {
@@ -24,16 +26,16 @@ for(let i = 0;i<allNumbers.length;i++) {
                 number = "first";
             }
             if(operandPressed==true) {
-                showOutput.textContent =" ";
-                showOutput.textContent += allNumbers[i].textContent;
+                if(number2===undefined)
+                    showOutput.textContent = "";
+                showOutput.textContent += Number(allNumbers[i].textContent);
                 number2 = Number(showOutput.textContent);
                 number = "second";
-                operandPressed = false;
             }
         }
     })
 }
-//Get opetarors,change turn of numbers
+//Get operators,change turn of numbers
 for(let i = 0;i<allOperators.length;i++) {
     allOperators[i].addEventListener("click",function() {
         showOutput.textContent = allOperators[i].textContent;
@@ -45,25 +47,26 @@ for(let i = 0;i<allOperators.length;i++) {
 finalAwnserBtn.addEventListener("click",function result() {
     let result;
     result = operate(operator,number1,number2);
+    console.log(result)
     if(result.toString().length>=16)
         showOutput.textContent = parseFloat(result).toFixed(5);
     else
         showOutput.textContent = result;
     number1 = Number(showOutput.textContent);
     operandPressed = false;
+    number2 = undefined;
 })
 
 clearBtn.addEventListener("click",function() {
     showOutput.textContent = "";
     number1 = 0;
-    number2 = 0;
+    number2 = undefined;
     operandPressed = false;
 })
 
 percentageBtn.addEventListener("click",function() {
     if(number == "first") {
         showOutput.textContent = showOutput.textContent/100;
-        console.log(typeof showOutput.textContent)
         number1 = Number(showOutput.textContent);
     }
     else if(number == "second") {
@@ -89,7 +92,6 @@ negativeNumbersBtn.addEventListener("click",function() {
 //Work with floats
 pointBtn.addEventListener("click",function() {
     if(Number.isInteger(Number(showOutput.textContent))) {
-        console.log("check")
         showOutput.textContent = showOutput.textContent + ".";
         Number(showOutput.textContent);
     }
